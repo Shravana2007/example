@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VendorX - Industrial Marketplace</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: black;
+      color: white;
+    }
+    header {
+      background-color: yellow;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: black;
+    }
+    .search-bar input {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+    }
+    .icons {
+      display: flex;
+      gap: 1rem;
+    }
+    .icons i {
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+    .slideshow {
+      display: flex;
+      overflow: auto;
+      scroll-snap-type: x mandatory;
+    }
+    .slide {
+      flex: none;
+      width: 100%;
+      height: 300px;
+      scroll-snap-align: start;
+      background-size: cover;
+      background-position: center;
+      animation: slideAnim 20s infinite;
+    }
+    @keyframes slideAnim {
+      0% {filter: hue-rotate(0deg);}
+      100% {filter: hue-rotate(360deg);}
+    }
+    .container {
+      padding: 1rem;
+    }
+    .item {
+      background: #1c1c1c;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+    }
+    .item button {
+      background: yellow;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      margin-right: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    footer {
+      background-color: yellow;
+      padding: 1rem;
+      text-align: center;
+      color: black;
+    }
+  </style>
+  <script>
+    function voiceSearch() {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.onresult = function(event) {
+        document.getElementById("search").value = event.results[0][0].transcript;
+      };
+      recognition.start();
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo">VendorX</div>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search industrial tools...">
+      <i class="fas fa-microphone" onclick="voiceSearch()"></i>
+    </div>
+    <div class="icons">
+      <i class="fas fa-user"></i>
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-shopping-cart"></i>
+    </div>
+  </header>  <div class="slideshow">
+    <div class="slide" style="background-image: url('https://via.placeholder.com/1200x300/FFD700/000?text=Industrial+Innovation');"></div>
+    <div class="slide" style="background-image: url('https://via.placeholder.com/1200x300/222/fff?text=VendorX+Solutions');"></div>
+    <div class="slide" style="background-image: url('https://via.placeholder.com/1200x300/FFA500/000?text=Smart+Machinery+Deals');"></div>
+  </div>  <div class="container">
+    <div class="item">
+      <h2>Heavy Duty Drill Machine</h2>
+      <p>Rs. 12,499</p>
+      <button>Add to Cart</button>
+      <button>Wishlist</button>
+      <button>Order Now</button>
+    </div><div class="item">
+  <h2>Electric Screwdriver Kit</h2>
+  <p>Rs. 2,999</p>
+  <button>Add to Cart</button>
+  <button>Wishlist</button>
+  <button>Order Now</button>
+</div>
+
+<div class="item">
+  <h2>Smart Welding Gear</h2>
+  <p>Rs. 8,499</p>
+  <button>Add to Cart</button>
+  <button>Wishlist</button>
+  <button>Order Now</button>
+</div>
+
+  </div>  <footer>
+    &copy; 2025 VendorX Industries. All rights reserved.
+  </footer>
+</body>
+</html>
